@@ -83,11 +83,16 @@
 		        }]
 		    });
 		    // popular directors
-		    for(var y in g.user.posters.pList) {
-		    	// alert(g.user.posters.pList[y].Director);
-		    	$( ".ul_director" ).append( "<p>"+g.user.posters.pList[y].Director+"</p>" );
+		    for(var i in g.user.posters.pList) {
+		    	// alert(g.user.posters.pList[i].Director);
+		    	$( ".ul_director" ).append( "<li>"+g.user.posters.pList[i].Director+"</li>" );
 		    }
-		    // alert(g.user.posters.pList[0].Director);
+		    // popular genres
+		    for(var i in g.user.categories) {
+		    	// alert(g.user.posters.pList[i].Genre);
+		    	// var genrerank = [[][]];
+		    	$( ".ul_categories" ).append( "<li>"+i+"</li>" );
+		    }
 		});
 	});
 	</script>
@@ -106,17 +111,11 @@
 		<div id="yearchart" class="data"></div>
 		<div class="data director">
 			<h3>Your Favorite Directors</h3>
-			<ul class="ul_director">
-				
-			</ul>
+			<ul class="ul_director"></ul>
 		</div>
 		<div class="data categories">
-			<h3>Your Favorite Categories</h3>
-			<ul>
-				<li>Adventure</li>
-				<li>Si-Fi</li>
-				<li>Adventure</li>
-			</ul>
+			<h3>Your Favorite Genres</h3>
+			<ul class="ul_categories"></ul>
 		</div>
 	</div>
 
