@@ -88,8 +88,8 @@ myApp.controller('MovieController', function MovieController($scope, $http){
 				$scope.user.time.add(num);
 			}
 
-			$scope.string = null;
-			$scope.result = null;
+			// $scope.string = null;
+			// $scope.result = null;
 		}
 
 	}
@@ -109,7 +109,8 @@ myApp.controller('MovieController', function MovieController($scope, $http){
 				});
 			}
 
-			g = resultSet;
+			// g = resultSet;
+			g = $scope;
 
 			$scope.result = resultSet;
 		});
