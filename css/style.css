@@ -22,11 +22,14 @@ h3 {
 /*Statistics*/
 .trigger {
   position: fixed;
-  top: 0;
-  right: 0;
+  top: 50px;
+  right: 50px;
   width: 32px;
+    width: 50px;
   height: 32px;
-  background: #999 url("../img/bars.png") no-repeat right top;
+    height: 50px;
+  background: #999 url("../img/bars.png") no-repeat center center;
+  z-index: 99;
 }
 .trigger:focus {
   outline: none;
@@ -167,3 +170,15 @@ input.time:focus {
       color: #fff;
       font-size: 12px;
     }
+
+/*MOBILE*/
+@media (max-width: 800px) {
+  .trigger {
+    top: 0;
+    right: 0;
+    width: 100%;
+  }
+  .container_top {
+    margin-top: 50px;
+  }
+}
