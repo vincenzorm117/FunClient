@@ -82,10 +82,12 @@
 		            data: yeardata
 		        }]
 		    });
+
+			$( ".ul_director" ).empty();
 		    // popular directors
-		    for(var y in g.user.posters.pList) {
+		    for(var y in g.user.directors) {
 		    	// alert(g.user.posters.pList[y].Director);
-		    	$( ".ul_director" ).append( "<p>"+g.user.posters.pList[y].Director+"</p>" );
+		    	$( ".ul_director" ).append( "<p>"+y+"</p>" );
 		    }
 		    // alert(g.user.posters.pList[0].Director);
 		});

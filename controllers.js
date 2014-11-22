@@ -30,7 +30,8 @@ myApp.controller('MovieController', function MovieController($scope, $http){
 		categories: {},
 		posters: {pList: []},
 		movieYrs: {yList: []},
-		titles: [],
+		titles: {},
+		directors: {},
 		age: {
 			ageYears:1,
 			setAgeYears: function(age){
@@ -73,6 +74,8 @@ myApp.controller('MovieController', function MovieController($scope, $http){
 				$scope.user.categories[cats[cat]].list.push(movie);
 			}
 
+			$scope.user.directors[movie.Director] = null;
+
 			$scope.user.posters.pList.push(movie);
 
 			if(movie.Year > 1900) {
@@ -103,9 +106,15 @@ myApp.controller('MovieController', function MovieController($scope, $http){
 
 			for(var video in videos){
 
+				if( $scope.user.titles[videos[video].imdbID])
+					continue;
+
+
 				$http.get("http://www.omdbapi.com/?i=" + encodeURIComponent(videos[video].imdbID)).success(function(data){
-					if(data.Type === "movie" || data.Type === "series")
+					if(data.Type === "movie" || data.Type === "series"){
+						// console.log(data);
 						resultSet.push(data);
+					}
 				});
 			}
 
