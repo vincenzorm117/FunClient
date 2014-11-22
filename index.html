@@ -142,7 +142,7 @@
 		<div class="sel">
 			<h2>Currently Selected Movies</h2>
 			<span class="single_item" ng-repeat="mov in user.posters.pList">
-				<div class="single_item">
+				<div class="single_item" ng-click="removeMovie(mov)">
 					<img ng-src="{{mov.Poster}}" alt="added">
 				</div>
 			</span>
