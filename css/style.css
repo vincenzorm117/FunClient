@@ -22,36 +22,28 @@ h3 {
 /*Statistics*/
 .trigger {
   position: fixed;
-  top: 0;
-  right: 0;
+  top: 50px;
+  right: 50px;
   width: 32px;
+    width: 50px;
   height: 32px;
-  background: #999 url("../img/bars.png") no-repeat right top;
+    height: 50px;
+  background: #999 url("../img/bars.png") no-repeat center center;
+  z-index: 99;
 }
 .trigger:focus {
   outline: none;
 }
-.statistics {
-  position: absolute;
-  width: 100%;
-    padding-top: 50px;
-  height: 100%;
-  background-color: #333;
-  z-index: 2;
-  overflow: scroll;
-  color: #000;
-  display: none;
+#statistics {
 }
-.statistics .data {
+#statistics .data {
   width: 90%;
-  height: 500px;
   margin: 15px auto;
-  background-color: #999;
 }
-.statistics ul {
+#statistics ul {
   font-size: 16px;
 }
-/*.statistics li {
+/*#statistics li {
   
 }*/
 
@@ -178,3 +170,15 @@ input.time:focus {
       color: #fff;
       font-size: 12px;
     }
+
+/*MOBILE*/
+@media (max-width: 800px) {
+  .trigger {
+    top: 0;
+    right: 0;
+    width: 100%;
+  }
+  .container_top {
+    margin-top: 50px;
+  }
+}
