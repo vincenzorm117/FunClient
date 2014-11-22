@@ -1,4 +1,4 @@
 FunClient
 =========
 
-An awesome way to keep track on how many hours of movies you've watched
+Keep track of how much time you waste <3
