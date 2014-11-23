@@ -90,11 +90,28 @@
 		    	// alert(g.user.posters.pList[y].Director);
 		    	$( ".ul_director" ).append( "<p>"+y+"</p>" );
 		    }
+
+		    var categories = {};
+
+		    for(var i in g.user.categories){
+		    	categories[i] = g.user.categories[i].list.length;
+		    }
+
+		    var keys = [];
+		    for(var i in categories){
+		    	keys.push(i);
+		    }
+
+		    keys.sort(function(a,b){ return categories[a] < categories[b]; });
+
+
+		    $( ".ul_categories" ).empty();
+
 		    // popular genres
-		    for(var i in g.user.categories) {
+		    for(var i in keys) {
 		    	// alert(g.user.posters.pList[i].Genre);
 		    	// var genrerank = [[][]];
-		    	$( ".ul_categories" ).append( "<li>"+i+"</li>" );
+		    	$( ".ul_categories" ).append( "<li>"+keys[i]+"</li>" );
 
 		    }
 		});
