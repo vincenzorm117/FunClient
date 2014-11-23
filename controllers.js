@@ -17,6 +17,11 @@ myApp.controller('MovieController', function MovieController($scope, $http){
 					this.timeMin += time;
 				}
 			},
+			sub: function(time){
+				if(typeof(time)==="number"){
+					this.timeMin -= time;
+				}
+			},
 			Min: function(){
 				return this.timeMin % 60;
 			},
@@ -95,6 +100,45 @@ myApp.controller('MovieController', function MovieController($scope, $http){
 			// $scope.result = null;
 		}
 
+	}
+
+	$scope.removeMovie = function(movie){
+		var id = movie.imdbID;
+
+		if(typeof($scope.user.titles[id]) !== 'undefined'){
+
+			var cats = movie.Genre.replace(/ /g,'').split(',');
+
+			for(var cat in cats){
+				if(typeof($scope.user.categories[cats[cat]])!=='undefined'){
+					var index = $scope.user.categories[cats[cat]].list.indexOf(movie);
+					if(index != -1){
+						$scope.user.categories[cats[cat]].list.splice(index,1);
+					}
+				}
+			}
+
+			if(typeof($scope.user.posters.pList) !=='undefined'){
+				var indexP = $scope.user.posters.pList.indexOf(movie);
+				if(indexP != -1){
+					$scope.user.posters.pList.splice(indexP,1);
+				}
+			}
+			if(movie.Year > 1900) {
+				var indexY = $scope.user.movieYrs.yList.indexOf(movie.Year);
+				$scope.user.movieYrs.yList.splice(indexY, 1);
+			}
+
+			//Extract runtime from movie
+			var num = parseInt(movie.Runtime.replace(/ min/g,''));
+
+			//Add runtime to users total time
+
+			if(!isNaN(num))  {
+				$scope.user.time.sub(num);
+			}
+			delete $scope.user.titles[id];
+		}
 	}
 
 	$scope.search = function(string){
